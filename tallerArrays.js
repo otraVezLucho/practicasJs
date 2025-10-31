@@ -155,7 +155,7 @@ function filterUser(userArray, minimunAge){
     for(let i = 0; i < userArray.length; i++){
         if (userArray[i].age >= minimunAge){
             
-            listUsers.push(userArray[i])     
+            listUsers.push(userArray[i].name)     
              
         }  
               
@@ -164,3 +164,19 @@ function filterUser(userArray, minimunAge){
 
 
 console.log(filterUser(socialMedia, minAge));
+
+/*
+Ejercicio 6: Contador de Palabras
+-Editor de texto.
+Crea una función contarPalabras(texto) que retorne el número de palabras en un string (separadas por
+espacios).
+
+*/
+
+let stringChain = "luis juan mario andres mateo o lucas"
+
+function countWords(chain){
+ let count = chain.split(" ");
+ return count.length
+}
+console.log("There are ",countWords(stringChain)," words");
