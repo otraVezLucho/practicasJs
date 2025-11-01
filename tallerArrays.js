@@ -1,5 +1,12 @@
 const prompt = require("prompt-sync")();
 
+
+/*
+Ejercicio 1: Calculadora de Propinas
+- Una app para calcular propinas en restaurantes.
+Crea una función calcularPropina(total, porcentaje) que reciba el total de la cuenta y el porcentaje de
+propina, y retorne el monto final a pagar (total + propina).
+*/
 console.log("Tips Calculator\n\n");
 
 
@@ -179,4 +186,63 @@ function countWords(chain){
  let count = chain.split(" ");
  return count.length
 }
+console.log("Chain to velidate: ", stringChain);
 console.log("There are ",countWords(stringChain)," words");
+
+
+/*
+Ejercicio 7: Simulador de Cajero Automático
+-App bancaria.
+Crea una función retirarDinero(saldo, monto) que:
+Pide al usuario su saldo actual y el monto a retirar.
+Muestra el nuevo saldo o "Fondos insuficientes".
+*/
+
+
+
+function withdraw(allowance, amount){
+    
+if (allowance < amount){
+    console.log("Insufficient funds");
+}else{
+    let result = allowance - amount;
+    console.log(`your new amout is: $${result}`);
+    }
+}
+
+let allowance = parseInt(prompt("enter the amount you have: "));
+
+let withDrawAmount = parseInt(prompt("enter the amount you want to withdraw: "));
+
+withdraw(allowance, withDrawAmount);
+
+/*
+Ejercicio 8: Cambio de Moneda
+-App de viajes.
+Crea una función convertirMoneda(monto, monedaDestino) que convierta de pesos a USD o EUR,
+pedir al usuario monto en COP y la moneda con la que desea hacer la converción.
+*/
+
+function converCurrencies(cop, currency){
+    const eur = 4500;
+    const usd = 3900; 
+    if (currency.match(/USD/)){
+        convertion = cop / usd
+        //console.log(convertion);
+        return convertion.toFixed(2);
+    }else if(currency.match(/EUR/)){
+        convertion = cop / eur
+        //console.log(convertion);
+        return convertion.toFixed(2);
+    }else{
+        console.log("write the correct currency symbol to exchange");
+        
+    }
+
+}
+
+let cop = parseFloat(prompt("Enter the amount in COP to convert: ") ,2);
+let currency = prompt("Enter the currency you want to exchange -> (USD / EUR): ").toUpperCase();
+
+console.log(converCurrencies(cop,currency));
+
